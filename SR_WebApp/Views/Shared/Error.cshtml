@@ -1,0 +1,21 @@
+﻿@model HandleErrorInfo
+
+@{
+    ViewBag.Title = "Error";
+    Layout = "~/Views/Shared/_Auth.cshtml";
+}
+
+<div id="aad-auth" class="p-8">
+    <div class="form-wrapper md-elevation-8 p-8">
+        <div class="logo">
+            <a href="@Url.Action("Index", "AdminHome")">
+                <img src="~/assets/images/logos/fuse.svg" alt="Fuse">
+            </a>
+        </div>
+        <div class="title mt-4 mb-8">Error</div>
+        <div style="color: #202020; line-height: 1.6;">An error occurred while processing your request.</div>
+        <div class="login row align-items-center justify-content-center mt-8 mb-6 mx-auto">
+            <md-button href="@Url.Action("Index", "AdminHome")" class="link text-secondary" style="font-size: 14px;">Return to admin console</md-button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="SR_WebApp.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="DbConnection" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Data Source=35.185.177.138,1433;Initial Catalog=SmartReceptionist;Persist Security Info=True;User ID=sa;Password=dh#iKre[b+gfi3wT_5tV-/f(5]gK;Encrypt=True;TrustServerCertificate=True</Value>
+    </Setting>
+    <Setting Name="DbType" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">sqlserver</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

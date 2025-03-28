@@ -1,0 +1,434 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "hello",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": [
+                        "what it can do",
+                        "what can it do",
+                        "what can you do"
+                    ]
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "FindMeetingRoomIntent",
+                    "slots": [
+                        {
+                            "name": "meetingRoom",
+                            "type": "AMAZON.SearchQuery",
+                            "samples": [
+                                "{meetingRoom}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "where {meetingRoom} is",
+                        "where is {meetingRoom}"
+                    ]
+                },
+                {
+                    "name": "AMAZON.MoreIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateSettingsIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NextIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.PageUpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.PageDownIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.PreviousIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.ScrollRightIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.ScrollDownIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.ScrollLeftIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.ScrollUpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "ReportLostItemIntent",
+                    "slots": [
+                        {
+                            "name": "name",
+                            "type": "AMAZON.Person",
+                            "samples": [
+                                "{name}"
+                            ]
+                        },
+                        {
+                            "name": "phoneNumber",
+                            "type": "AMAZON.NUMBER",
+                            "samples": [
+                                "{phoneNumber}"
+                            ]
+                        },
+                        {
+                            "name": "itemDescription",
+                            "type": "AMAZON.SearchQuery",
+                            "samples": [
+                                "{itemDescription}"
+                            ]
+                        },
+                        {
+                            "name": "locationLost",
+                            "type": "AMAZON.SearchQuery",
+                            "samples": [
+                                "{locationLost}"
+                            ]
+                        },
+                        {
+                            "name": "dateLost",
+                            "type": "AMAZON.DATE",
+                            "samples": [
+                                "{dateLost}"
+                            ]
+                        },
+                        {
+                            "name": "timeLost",
+                            "type": "AMAZON.TIME",
+                            "samples": [
+                                "{timeLost}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "I lost an item",
+                        "I wish to report a lost item",
+                        "I want to report a lost item"
+                    ]
+                },
+                {
+                    "name": "DisplayFloorPlanIntent",
+                    "slots": [],
+                    "samples": [
+                        "display the floor plan"
+                    ]
+                },
+                {
+                    "name": "HandOverFoundItemIntent",
+                    "slots": [],
+                    "samples": [
+                        "I found an item",
+                        "I wish to hand over a found item",
+                        "I want to hand over a found item"
+                    ]
+                },
+                {
+                    "name": "SubmitStatementOfAbsenceIntent",
+                    "slots": [],
+                    "samples": [
+                        "I wish to submit my S. O. A.",
+                        "I want to submit my S. O. A.",
+                        "I wish to submit my statement of absence",
+                        "I want to submit my statement of absence"
+                    ]
+                },
+                {
+                    "name": "ElementSelectedIntent",
+                    "slots": [
+                        {
+                            "name": "numberValue",
+                            "type": "AMAZON.NUMBER"
+                        }
+                    ],
+                    "samples": [
+                        "{numberValue}",
+                        "show number {numberValue}",
+                        "open number {numberValue}",
+                        "select number {numberValue}"
+                    ]
+                },
+                {
+                    "name": "RegisterVisitIntent",
+                    "slots": [
+                        {
+                            "name": "staff",
+                            "type": "AMAZON.SearchQuery",
+                            "samples": [
+                                "{staff}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "I've a meeting with {staff}",
+                        "I have a meeting with {staff}"
+                    ]
+                }
+            ],
+            "types": []
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "FindMeetingRoomIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "meetingRoom",
+                            "type": "AMAZON.SearchQuery",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.363639571846.975072613720"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "ReportLostItemIntent",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.306267078150"
+                    },
+                    "slots": [
+                        {
+                            "name": "name",
+                            "type": "AMAZON.Person",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1236023875991.1362228154145"
+                            }
+                        },
+                        {
+                            "name": "phoneNumber",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1236023875991.482365425466"
+                            }
+                        },
+                        {
+                            "name": "itemDescription",
+                            "type": "AMAZON.SearchQuery",
+                            "confirmationRequired": true,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "confirmation": "Confirm.Slot.837666345719.1002507986477",
+                                "elicitation": "Elicit.Slot.1236023875991.1400580375962"
+                            }
+                        },
+                        {
+                            "name": "locationLost",
+                            "type": "AMAZON.SearchQuery",
+                            "confirmationRequired": true,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "confirmation": "Confirm.Slot.837666345719.1239913706134",
+                                "elicitation": "Elicit.Slot.1236023875991.28063530175"
+                            }
+                        },
+                        {
+                            "name": "dateLost",
+                            "type": "AMAZON.DATE",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1236023875991.1428668283273"
+                            }
+                        },
+                        {
+                            "name": "timeLost",
+                            "type": "AMAZON.TIME",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1236023875991.347148502642"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "RegisterVisitIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "staff",
+                            "type": "AMAZON.SearchQuery",
+                            "confirmationRequired": true,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "confirmation": "Confirm.Slot.732158759637.536815491398",
+                                "elicitation": "Elicit.Slot.732158759637.536815491398"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "prompts": [
+            {
+                "id": "Elicit.Slot.176512778413.629943682794",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Which {staff} do you have a meeting with?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.363639571846.975072613720",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Which meeting room are you looking for?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1236023875991.1362228154145",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "What's your name?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1236023875991.482365425466",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "What's your phone number?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1236023875991.1400580375962",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Please describe the item."
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1236023875991.28063530175",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Where did you lose the item?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1236023875991.1428668283273",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "When did you lose the item?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1236023875991.347148502642",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Around what time did you lose the item?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Slot.837666345719.1002507986477",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "You described the item as {itemDescription} , right?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Slot.837666345719.1239913706134",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "You lost the item at {locationLost} , right?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.306267078150",
+                "variations": [
+                    {
+                        "type": "SSML",
+                        "value": "<speak>You said your name is {name}, your phone number is <say-as interpret-as=\"digits\">{phoneNumber}</say-as>, and you lost the item on {dateLost} around {timeLost}, right?</speak>"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.163576489888",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Test"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Slot.381884456033.527303070648",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "You have a meeting with {staff}, right?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.732158759637.536815491398",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Which {staff} do you have a meeting with?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Slot.732158759637.536815491398",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "You have a meeting with {staff}, right?"
+                    }
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+﻿@using Microsoft.Azure.ActiveDirectory.GraphClient
+@model IUser
+
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_App.cshtml";
+}
+
+@section Styles {
+    <style>
+        body {
+            background: #FFFFFF !important;
+        }
+    </style>
+}
+
+<div id="project-dashboard" class="page-layout simple full-width">
+    <div class="page-content-wrapper custom-scrollbar">
+        <!-- Header -->
+        <div class="page-header bg-secondary text-auto d-flex flex-column justify-content-between px-6 pt-4 pb-0">
+            <div class="row no-gutters align-items-start justify-content-between flex-nowrap">
+                <div>
+                    <span class="h2">Welcome, @Model.DisplayName</span>
+                </div>
+            </div>
+        </div>
+        <!-- End header -->
+
+        <!-- Content -->
+        <div class="page-content">
+
+        </div>
+        <!-- End content-->
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $("#nav-link-dashboard").addClass("active");
+    </script>
+}

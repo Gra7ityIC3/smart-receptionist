@@ -1,0 +1,18 @@
+﻿@using Microsoft.Azure.ActiveDirectory.GraphClient
+
+@{
+    ViewBag.Title = "Admin Console";
+    Layout = "~/Views/Shared/_Auth.cshtml";
+}
+
+<div id="aad-auth" class="p-8">
+    <div class="form-wrapper md-elevation-8 p-8">
+        <div class="logo">
+            <a href="@Url.Action("Index", "AdminHome")">
+                <img src="~/assets/images/logos/fuse.svg" alt="Fuse">
+            </a>
+        </div>
+        <div class="title mt-4 mb-8">Admin Console</div>
+        <div class="mb-8" style="color: #202020; line-height: 1.6;">The token for accessing the Graph API has expired. Click @Html.ActionLink("here", "RefreshSession", "AdminHome", null, null) to sign in and get a new access token.</div>
+    </div>
+</div>

@@ -1,0 +1,383 @@
+﻿@{
+    ViewBag.Title = "Lost and Found";
+    Layout = "~/Views/Shared/_App.cshtml";
+}
+
+@section Styles {
+    <style>
+        .dataTables_wrapper {
+            display: block !important;
+        }
+
+        div.DTED_Lightbox_Background {
+            z-index: 1038 !important;
+        }
+
+        div.DTED_Lightbox_Wrapper {
+            z-index: 1039 !important;
+        }
+
+        div.DTE button.btn, div.DTE div.DTE_Form_Buttons button {
+            padding: 0 1.6rem !important;
+        }
+
+        .ab-wf-k-Sl {
+            font-weight: bold;
+            margin-top: 1em;
+        }
+    </style>
+}
+
+<div class="doc data-table-doc page-layout simple full-width">
+    <!-- Header -->
+    <div class="page-header bg-secondary text-auto p-6 row no-gutters align-items-center justify-content-between">
+        <h2 class="doc-title" id="content">Total lost items: <span id="totalLostItems"></span></h2>
+    </div>
+    <!-- End header -->
+
+    <!-- Content -->
+    <div class="page-content p-6">
+        <div class="content">
+            <div class="row">
+                <div class="col-12" style="margin-bottom: 1.8rem">
+                    <p>
+                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseFilterLostItems" aria-expanded="false"
+                                aria-controls="collapseFilterLostItems">
+                            <i class="fa icon-magnify left"></i> Filter lost items
+                        </button>
+                    </p>
+
+                    <div class="collapse" id="collapseFilterLostItems">
+                        <section class="section">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="card">
+                                        <div class="card-block" style="padding: 1.6rem">
+                                            <div class="row">
+                                                <div class="col-md-6" data-column="1">
+                                                    <div class="form-group">
+                                                        <input type="text" id="name" class="form-control" />
+                                                        <label for="name">Name</label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6" data-column="2">
+                                                    <div class="form-group">
+                                                        <input type="text" id="phoneNumber" class="form-control" />
+                                                        <label for="phoneNumber">Phone number</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-6" data-column="3">
+                                                    <div class="form-group">
+                                                        <input type="text" id="itemDescription" class="form-control" />
+                                                        <label for="itemDescription">Item description</label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6" data-column="4">
+                                                    <div class="form-group">
+                                                        <input type="text" id="locationLost" class="form-control" />
+                                                        <label for="locationLost">Location lost</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-6" data-column="5">
+                                                    <div class="form-group">
+                                                        <input type="text" id="dateLost" class="form-control" />
+                                                        <label for="dateLost">Date lost</label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6" data-column="6">
+                                                    <div class="form-group">
+                                                        <input type="text" id="timeLost" class="form-control" />
+                                                        <label for="timeLost">Time lost</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-6" data-column="7">
+                                                    <div class="form-group">
+                                                        <input type="text" id="status" class="form-control" />
+                                                        <label for="status">Status</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-12 text-center">
+                                                    <button id="btnResetFilters" class="btn btn-primary waves-effect waves-light" type="button">Reset filters</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-block" style="padding: 1.6rem;">
+                            <table id="tblLostItems" class="table table-hover table-responsive-md">
+                                <thead>
+                                    <tr>
+                                        <th class="secondary-text">
+                                            <div class="table-header">
+                                                <span class="column-title">ID</span>
+                                            </div>
+                                        </th>
+
+                                        <th class="secondary-text">
+                                            <div class="table-header">
+                                                <span class="column-title">Name</span>
+                                            </div>
+                                        </th>
+
+                                        <th class="secondary-text">
+                                            <div class="table-header">
+                                                <span class="column-title">Phone Number</span>
+                                            </div>
+                                        </th>
+
+                                        <th class="secondary-text">
+                                            <div class="table-header">
+                                                <span class="column-title">Item Description</span>
+                                            </div>
+                                        </th>
+
+                                        <th class="secondary-text">
+                                            <div class="table-header">
+                                                <span class="column-title">Location Lost</span>
+                                            </div>
+                                        </th>
+
+                                        <th class="secondary-text">
+                                            <div class="table-header">
+                                                <span class="column-title">Date Lost</span>
+                                            </div>
+                                        </th>
+
+                                        <th class="secondary-text">
+                                            <div class="table-header">
+                                                <span class="column-title">Time Lost</span>
+                                            </div>
+                                        </th>
+
+                                        <th class="secondary-text">
+                                            <div class="table-header">
+                                                <span class="column-title">Status</span>
+                                            </div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End content-->
+</div>
+
+@section Scripts {
+    <!-- Moment.js -->
+    <script type="text/javascript" src="~/assets/vendor/moment/min/moment.min.js"></script>
+
+    <script>
+        $("#nav-link-lost-and-found").addClass("active");
+
+        var editor;
+
+        $(document).ready(function () {
+            editor = new $.fn.dataTable.Editor({
+                ajax: "/api/LostItemsTable",
+                table: "#tblLostItems",
+                fields: [
+                    {
+                        label: "Name:",
+                        name: "Name"
+                    }, {
+                        label: "Phone number:",
+                        name: "PhoneNumber"
+                    }, {
+                        label: "Item description:",
+                        name: "ItemDescription"
+                    }, {
+                        label: "Location lost:",
+                        name: "LocationLost"
+                    }, {
+                        label: "Date lost:",
+                        name: "DateLost",
+                        type: "datetime",
+                        def: function() {
+                            return new Date();
+                        },
+                        opts: {
+                            maxDate: new Date()
+                        }
+                    }, {
+                        label: "Time lost:",
+                        name: "TimeLost"
+                    }, {
+                        label: "Status:",
+                        name: "Status",
+                        type: "select",
+                        options: [
+                            "Missing",
+                            "Found"
+                        ]
+                    }
+                ],
+                i18n: {
+                    create: {
+                        title: "Add a new lost item",
+                        submit: "Add"
+                    },
+                    edit: {
+                        title: "Edit lost item",
+                        submit: "Save"
+                    },
+                    remove: {
+                        title: "Delete lost item",
+                        submit: "Delete",
+                        confirm: {
+                            _: "Are you sure you want to delete %d lost items?" +
+                                "<div class='ab-wf-k-Sl'>Warning: You can’t undo this action.</div>",
+                            1: "Are you sure you want to delete this lost item?" +
+                                "<div class='ab-wf-k-Sl'>Warning: You can’t undo this action.</div>"
+                        }
+                    }
+                }
+            });
+
+            var table = $("#tblLostItems").DataTable({
+                dom: "Bfrtip",
+                ajax: "/api/LostItemsTable",
+                columns: [
+                    { data: "Id" },
+                    { data: "Name" },
+                    { data: "PhoneNumber" },
+                    { data: "ItemDescription" },
+                    { data: "LocationLost" },
+                    {
+                        data: "DateLost",
+                        render: function(data) {
+                            const dateLost = moment(data).format("MMM D, YYYY");
+                            return dateLost;
+                        }
+                    },
+                    { data: "TimeLost" },
+                    { data: "Status" }
+                ],
+                columnDefs: [
+                    {
+                        targets: [1, 3, 4],
+                        render: $.fn.dataTable.render.ellipsis(20)
+                    }
+                ],
+                select: true,
+                buttons: [
+                    { extend: "create", editor: editor },
+                    { extend: "edit", editor: editor },
+                    { extend: "remove", editor: editor }
+                ],
+                search: {
+                    caseInsensitive: false
+                },
+                initComplete: function() {
+                    $("#totalLostItems").text(table.data().count());
+                }
+            });
+
+            editor.on('submitSuccess',
+                function(e, json, data, action) {
+                    if (action === "create") {
+                        new PNotify({
+                            text: 'Lost item has been added',
+                            buttons: {
+                                closer: false,
+                                sticker: false
+                            },
+                            animate: {
+                                animate: true,
+                                in_class: 'slideInUp',
+                                out_class: 'slideOutDown'
+                            },
+                            addclass: 'md stack-bottomleft',
+                            delay: 2750
+                        });
+                    } else if (action === "edit") {
+                        new PNotify({
+                            text: 'Lost item details saved',
+                            buttons: {
+                                closer: false,
+                                sticker: false
+                            },
+                            animate: {
+                                animate: true,
+                                in_class: 'slideInUp',
+                                out_class: 'slideOutDown'
+                            },
+                            addclass: 'md stack-bottomleft',
+                            delay: 2750
+                        });
+                    } else {
+                        new PNotify({
+                            text: 'Lost item has been deleted',
+                            buttons: {
+                                closer: false,
+                                sticker: false
+                            },
+                            animate: {
+                                animate: true,
+                                in_class: 'slideInUp',
+                                out_class: 'slideOutDown'
+                            },
+                            addclass: 'md stack-bottomleft',
+                            delay: 2750
+                        });
+                    }
+
+                    $("#totalLostItems").text(table.data().count());
+                });
+
+            $("input.form-control").on("keyup click",
+                function() {
+                    filterColumn($(this).parents().eq(1).attr("data-column"), $(this).attr("id"));
+                });
+
+            $("#collapseFilterLostItems").on("shown.bs.collapse",
+                function() {
+                    $("#name").focus();
+                });
+
+            $("#btnResetFilters").click(function() {
+                $("input:text").each(function() {
+                    $(this).val("");
+
+                    if ($(this).hasClass("md-has-value")) {
+                        $(this).removeClass("md-has-value");
+                    }
+                });
+
+                $("#tblLostItems").DataTable().search("").columns().search("").draw();
+                $("#name").focus();
+            });
+        });
+
+        function filterColumn(i, id) {
+            $("#tblLostItems").DataTable().column(i).search(
+                $(`#${id}`).val()
+            ).draw();
+        }
+    </script>
+}

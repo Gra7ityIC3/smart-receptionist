@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "Sign Out";
+    Layout = "~/Views/Shared/_Auth.cshtml";
+}
+
+<div id="aad-auth" class="p-8">
+    <div class="form-wrapper md-elevation-8 p-8">
+        <div class="logo">
+            <a href="@Url.Action("Index", "AdminHome")">
+                <img src="~/assets/images/logos/fuse.svg" alt="Fuse">
+            </a>
+        </div>
+        <div class="title mt-4 mb-8">Sign Out</div>
+        <div style="color: #202020; line-height: 1.6;">You have successfully signed out.</div>
+        <div class="login row align-items-center justify-content-center mt-8 mb-6 mx-auto">
+            <md-button href="@Url.Action("SignIn", "Account")" class="link text-secondary" style="font-size: 14px;">Click here to sign in again</md-button>
+        </div>
+    </div>
+</div>
